@@ -3,7 +3,7 @@ import Navbar from '../../components/ui/Navbar/Navbar';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Product = () => {
+const Product = ({ cartSize }) => {
     const { productId } = useParams();
     const url = `http://localhost:5001/api/product/${productId}`;
     const [product, setProduct] = useState('');
@@ -19,7 +19,7 @@ const Product = () => {
 
     return (
         <section className='Product'>
-            <Navbar />
+            <Navbar cartSize={cartSize} />
             {product && (
                 <div className='product-details'>
                     <img src={product.images} alt='' width='50%' />
@@ -28,10 +28,9 @@ const Product = () => {
                     <p>{product.description}</p>
                     <p>{product.gender}</p>
                     <h4>Review:</h4>
-                    {product.review.map((eachReview) => {
-                      return <p>{eachReview}</p>
+                    {product.review.map((eachReview,index) => {
+                        return <p key={index}>{eachReview}</p>;
                     })}
-                   
                 </div>
             )}
         </section>

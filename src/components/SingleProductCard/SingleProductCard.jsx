@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './SingleProductCard.css';
 
-const SingleProductCard = (product) => {
+const SingleProductCard = ({ product, addToCart }) => {
     const { name, category, gender, images, cost, description, _id } = product;
     const productId = _id;
     return (
@@ -13,7 +13,7 @@ const SingleProductCard = (product) => {
                 <div>Rs-{cost}</div>
             </Link>
             <div>
-                <button>Buy Now</button>
+                <button onClick={()=>addToCart(product)}>Buy Now</button>
                 <button>Add to Cart</button>
             </div>
         </div>

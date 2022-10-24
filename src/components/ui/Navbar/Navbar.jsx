@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {  } from 'react';
+import {Link} from 'react-router-dom'
 import './Navbar.css';
 import logo from '../../../assets/images/UI/shop-icon.png';
 import { BsSearch, BsCart3 } from 'react-icons/bs';
 import { CiLogin } from 'react-icons/ci';
-const Navbar = () => {
-    const [cart, setCart] = useState(0);
+
+const Navbar = ({cartSize}) => {
     return (
         <nav>
             <div className='container d-flex'>
@@ -24,16 +24,16 @@ const Navbar = () => {
                             </button>
                         </li>
                         <li className='d-inline mx-5'>
+                            <Link to='/cart'>
                             <BsCart3 />
-                            Cart-{cart}
+                            Cart-{cartSize}
+                            </Link>
                         </li>
                         <li className='d-inline'>
-                            
-                                <button className='btn'>
-                                    Login
-                                    <CiLogin />
-                                </button>
-                         
+                            <button className='btn'>
+                                Login
+                                <CiLogin />
+                            </button>
                         </li>
                     </ul>
                 </div>
