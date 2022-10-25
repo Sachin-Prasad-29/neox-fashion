@@ -30,10 +30,12 @@ const Navbar = ({cartSize}) => {
                             </Link>
                         </li>
                         <li className='d-inline'>
+                            <Link to='/login'>
                             <button className='btn'>
                                 Login
                                 <CiLogin />
                             </button>
+                            </Link>
                         </li>
                     </ul>
                 </div>

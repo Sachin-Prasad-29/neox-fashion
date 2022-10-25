@@ -5,18 +5,32 @@ import Filter from '../../components/Filter/Filter';
 import ProductsList from '../../components/ProductsList/ProductsList';
 import axios from 'axios';
 
-const Home = ({ addToCart,cartSize }) => {
+const Home = ({ addToCart, cartSize }) => {
     const [products, setProducts] = useState([]);
-    const fetchProduct = async (url) => {
-        const response = await axios(url);
+    const [showBanner, setShowBanner] = useState(true);
+    const fetchProduct = async (queryObject = '') => {
+        if (queryObject) {
+            setShowBanner(false);
+        }
+        if (!queryObject) {
+            setShowBanner(true);
+        }
+        const url = `http://localhost:5001/api/product`;
+        const reqData = {
+            method: 'get',
+            url: `${url}?${queryObject}`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        const response = await axios(reqData);
         setProducts(response.data.products);
     };
     return (
         <div>
-           
             <Navbar cartSize={cartSize} />
-            <Filter />
-            <Banner />
+            <Filter products={products} fetchProduct={fetchProduct} />
+            {showBanner && <Banner />}
             <ProductsList products={products} fetchProduct={fetchProduct} addToCart={addToCart} />
         </div>
     );

@@ -3,6 +3,8 @@ import { useReducer } from 'react';
 import Home from './pages/Home/Home';
 import Product from './pages/Product/Product';
 import Login from './pages/Login/Login';
+import AdminLogin from './pages/AdminLogin/AdminLogin';
+import DashBoard from './pages/DashBoard/DashBoard'
 import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 
@@ -35,6 +37,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home addToCart={addToCart} cartSize={state.cart.length} />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/admin' element={<AdminLogin />} />
+                <Route path='/admin/dashboard' element={<DashBoard/>}/>
                 <Route path='/register' element={<Register />} />
                 <Route path='/cart' element={<Cart cart={state.cart}/>} />
 
