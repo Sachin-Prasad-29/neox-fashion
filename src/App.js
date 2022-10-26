@@ -42,7 +42,7 @@ function App() {
                 <Route path='/register' element={<Register />} />
                 <Route path='/cart' element={<Cart cart={state.cart}/>} />
 
-                <Route path='/:productId' element={<Product cartSize={state.cart.length} />} />
+                <Route path='/:productId' element={<Product cartSize={state.cart.length} addToCart={addToCart}/>} />
             </Routes>
         </BrowserRouter>
     );

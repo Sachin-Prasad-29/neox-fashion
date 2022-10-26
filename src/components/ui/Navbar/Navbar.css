@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 nav {
-    background-color: rgb(134, 208, 231);
-    border-bottom: 1px solid grey;
+    background-color: rgb(247, 181, 0);
+    box-shadow: 0px 0px 1px 1px lightgrey;
+    position: sticky;
+    top: 0px;
 }
 
 .logo img {

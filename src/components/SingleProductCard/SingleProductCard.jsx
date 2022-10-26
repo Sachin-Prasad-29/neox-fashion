@@ -13,8 +13,8 @@ const SingleProductCard = ({ product, addToCart }) => {
                 <div>Rs-{cost}</div>
             </Link>
             <div>
-                <button onClick={()=>addToCart(product)}>Buy Now</button>
-                <button>Add to Cart</button>
+                <button>Buy Now</button>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
         </div>
     );

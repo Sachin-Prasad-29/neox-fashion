@@ -1,9 +1,11 @@
 import React from 'react';
+import Navbar from '../../components/ui/Navbar/Navbar';
 
 const Cart = ({ cart }) => {
     let total = 0;
     return (
         <>
+            <Navbar cartSize={cart.length} />
             <div className='d-flex'>
                 {cart.length === 0 && <div>NO Item in the Cart</div>}
                 {cart.map((product) => {

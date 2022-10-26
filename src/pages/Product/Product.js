@@ -3,7 +3,7 @@ import Navbar from '../../components/ui/Navbar/Navbar';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Product = ({ cartSize }) => {
+const Product = ({ cartSize, addToCart }) => {
     const { productId } = useParams();
     const url = `http://localhost:5001/api/product/${productId}`;
     const [product, setProduct] = useState('');
@@ -23,12 +23,14 @@ const Product = ({ cartSize }) => {
             {product && (
                 <div className='product-details'>
                     <img src={product.images} alt='' width='50%' />
+                    <button >Buy Now</button>
+                    <button onClick={() => addToCart(product)}>Add To cart</button>
                     <p>{product.name}</p>
                     <p>rs-{product.cost}</p>
                     <p>{product.description}</p>
                     <p>{product.gender}</p>
                     <h4>Review:</h4>
-                    {product.review.map((eachReview,index) => {
+                    {product.review.map((eachReview, index) => {
                         return <p key={index}>{eachReview}</p>;
                     })}
                 </div>
