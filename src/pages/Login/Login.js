@@ -30,6 +30,8 @@ const Login = () => {
             localStorage.setItem('email', response.data.email);
             localStorage.setItem('name', response.data.name);
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('role', response.data.role);
+            
             navigate('/');
         }
     };

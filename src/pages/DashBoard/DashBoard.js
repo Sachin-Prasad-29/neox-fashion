@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import DashBoardProduct from '../../components/DashBoardProduct/DashBoardProduct';
 
 const DashBoard = () => {
     const [products, setProducts] = useState([]);
@@ -8,7 +9,9 @@ const DashBoard = () => {
     const [gender, setGender] = useState('');
     const [description, setDescription] = useState('');
     const [cost, setCost] = useState('');
-    const [images,setImages] = useState('');
+    const [images, setImages] = useState('');
+    const [id]
+    const [editMode, setEditMode] = useState(false);
     const fetchProduct = async () => {
         const url = `http://localhost:5001/api/product`;
         const reqData = {
@@ -22,6 +25,7 @@ const DashBoard = () => {
         setProducts(response.data.products);
     };
     const addProduct = async () => {
+        
         const url = 'http://localhost:5001/api/product';
         const productDetails = {
             name,
@@ -29,7 +33,7 @@ const DashBoard = () => {
             gender,
             description,
             cost,
-            images
+            images,
         };
         const reqData = {
             method: 'post',
@@ -43,9 +47,26 @@ const DashBoard = () => {
         const response = await axios(reqData);
         console.log(response);
     };
+    const fillData = (productDetails) => {
+        const { name, category, gender, description, cost, images } = productDetails;
+        setEditMode(true);
+        setName(name);
+        setCategory(category);
+        setGender(gender);
+        setDescription(description);
+        setCost(cost);
+        setImages(images);
+    };
+
+    const editProduct = () => {
+        
+    };
+
+
+    const deleteProduct = (id) => {};
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [products]);
     return (
         <div className='container d-flex'>
             <div className='m-5'>
@@ -108,33 +129,31 @@ const DashBoard = () => {
                     />
                 </div>
                 <div className='mt-3'>
-                    <label htmlFor='images'>Cost</label>
+                    <label htmlFor='images'>Image</label>
                     <br />
-                    <input type='text' value={images} onChange={(e) => setImages(e.target.value)} placeholder='ImageUrl' />
+                    <input
+                        type='text'
+                        value={images}
+                        onChange={(e) => setImages(e.target.value)}
+                        placeholder='ImageUrl'
+                    />
                 </div>
                 <div className='mt-3'>
-                    <button onClick={addProduct}>Add Product</button>
+                    <button onClick={() => (editMode ? editProduct() : addProduct())}>
+                        {editMode ? 'Edit Product' : 'Add Product'}
+                    </button>
                 </div>
             </div>
             <div>
                 {products.map((product) => {
                     const { name, _id, cost, gender, category, description } = product;
                     return (
-                        <div key={_id}>
-                            <p>
-                                {name} ---
-                                {_id}
-                            </p>
-
-                            <p>{cost}</p>
-                            <p>{gender}</p>
-                            <p>{category}</p>
-                            <p>{description}</p>
-                            <div>
-                                <button>Edit</button>
-                                <button>Delete</button>
-                            </div>
-                        </div>
+                        <DashBoardProduct
+                            key={_id}
+                            productDetails={product}
+                            fillData={fillData}
+                            deleteProduct={deleteProduct}
+                        />
                     );
                 })}
             </div>
