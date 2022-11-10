@@ -1,22 +1,14 @@
 import React from 'react'
 import './Banner.css'
+ import image from '../../assets/images/UI/banner.jpg'
 
 
 
 const Banner = () => {
   return (
-      <section >
+      <section>
           <div className='banner'>
-              <img
-                  src='https://static6.depositphotos.com/1006714/560/v/950/depositphotos_5609275-stock-illustration-shoping.jpg'
-                  alt='banner'
-                  width='50%'
-              />
-              <img
-                  src='https://static6.depositphotos.com/1006714/560/v/950/depositphotos_5609275-stock-illustration-shoping.jpg'
-                  alt='banner'
-                  width='50%'
-              />
+              <img src={image} alt='banner' width='100%' />
           </div>
       </section>
   );

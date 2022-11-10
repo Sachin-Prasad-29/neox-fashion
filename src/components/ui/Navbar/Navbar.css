@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 nav {
-    background-color: rgb(247, 181, 0);
+    background-color: rgb(0, 156, 247);
     box-shadow: 0px 0px 1px 1px lightgrey;
     position: sticky;
     top: 0px;
+    color: white;
 }
 
 .logo img {
@@ -16,9 +17,20 @@ nav {
     width: 95%;
 }
 
-.logo-ul li{
+.logo-ul li {
     font-family: 'Kaushan Script', cursive;
     font-size: 1.5em;
     font-weight: 800;
     cursor: pointer;
+    color: white;
+}
+#search-box{
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+    width:150px;
+}
+#search-box:focus{
+   
+    outline: 1px solid rgb(163, 160, 160);;
 }

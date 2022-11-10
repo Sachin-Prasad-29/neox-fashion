@@ -2,20 +2,17 @@ import React, { useState } from 'react';
 import './DashBoardProduct.css';
 
 const DashBoardProduct = ({ productDetails, fillData, deleteProduct }) => {
-    const { name, _id, cost, gender, category, description } = productDetails;
+    const { name, _id, cost, gender, category, description,images } = productDetails;
     return (
-        <div>
+        <div className='eachProduct'>
+            <p>Name : {name} </p>
+            <img src={images} alt="" width="100px"/>
             <p>
-                {name} ---
-                {_id}
+                Rs : {cost}, &nbsp; Gender : {gender}, &nbsp;Category : {category}
             </p>
-
-            <p>{cost}</p>
-            <p>{gender}</p>
-            <p>{category}</p>
-            <p>{description}</p>
+            <p>Desc : {description}</p>
             <div>
-                <button onClick={() => fillData(productDetails)}>Edit</button>
+                <button onClick={() => fillData(productDetails)}>Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button onClick={() => deleteProduct(_id)}>Delete</button>
             </div>
         </div>

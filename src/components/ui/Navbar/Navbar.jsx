@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../assets/images/UI/shop-icon.png';
@@ -6,7 +6,12 @@ import { BsSearch, BsCart3 } from 'react-icons/bs';
 import { CiLogin } from 'react-icons/ci';
 
 const Navbar = ({ cartSize }) => {
-    const user = localStorage.getItem('name');
+    const [user, setUser] = useState(localStorage.getItem('name'));
+    const signOut = () => {
+        alert('hello');
+        localStorage.clear();
+        setUser('');
+    };
     return (
         <nav>
             <div className='container d-flex'>
@@ -23,15 +28,15 @@ const Navbar = ({ cartSize }) => {
                     </ul>
                     <ul className='no-bullet link-ul'>
                         <li className='d-inline'>
-                            <input type='text' placeholder='Search for product' />
+                            <input type='text' placeholder=' Search for product' id='search-box' />
                             <button className='btn mx-2'>
                                 <BsSearch />
                             </button>
                         </li>
-                        <li className='d-inline mx-5'>
-                            <Link to='/cart' style={{ textDecoration: 'none' }}>
+                        <li className='d-inline mx-5 '>
+                            <Link to='/cart' style={{ textDecoration: 'none', color: 'white' }}>
                                 <BsCart3 />
-                                 Cart-{cartSize}
+                                Cart <span className='text-orange'>{cartSize}</span>
                             </Link>
                         </li>
                         {!user && (
@@ -46,7 +51,11 @@ const Navbar = ({ cartSize }) => {
                         )}
                         {user && (
                             <span>
-                                Hello <b>{user}</b>
+                                Hi, <b className='text-orange'>{user} </b>
+                                <button className='btn' onClick={signOut}>
+                                    {' '}
+                                    <b>Sign Out</b>
+                                </button>
                             </span>
                         )}
                     </ul>
