@@ -9,45 +9,6 @@ const Cart = ({ cart }) => {
         <>
             <Navbar cartSize={cart.length} />
             <div className='cart-container'>
-                {/* <div className='d-flex each-product'>
-                    <img
-                        src='https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?b=1&s=170667a&w=0&k=20&c=CZ5Emlrh-C4jzojJ8b8YBy1frxpQr6aMcLmEBrkty7Q='
-                        alt=''
-                        width='150px'
-                    />
-
-                    <p>Name</p>
-                    <p>12000</p>
-                </div>
-                <div className='d-flex each-product'>
-                    <img
-                        src='https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?b=1&s=170667a&w=0&k=20&c=CZ5Emlrh-C4jzojJ8b8YBy1frxpQr6aMcLmEBrkty7Q='
-                        alt=''
-                        width='150px'
-                    />
-                    <p>Name</p>
-                    <p>12000</p>
-                </div>
-                <div className='d-flex each-product'>
-                    <img
-                        src='https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?b=1&s=170667a&w=0&k=20&c=CZ5Emlrh-C4jzojJ8b8YBy1frxpQr6aMcLmEBrkty7Q='
-                        alt=''
-                        width='150px'
-                    />
-
-                    <p>Name</p>
-                    <p>12000</p>
-                </div>
-                <div className='d-flex each-product'>
-                    <img
-                        src='https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?b=1&s=170667a&w=0&k=20&c=CZ5Emlrh-C4jzojJ8b8YBy1frxpQr6aMcLmEBrkty7Q='
-                        alt=''
-                        width='150px'
-                    />
-                    <p>Name</p>
-                    <p>12000</p>
-                </div> */}
-
                 {cart.length === 0 && (
                     <div className='my-5'>   
                         <img src={image} alt='' width="200px" />

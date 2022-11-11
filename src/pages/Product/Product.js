@@ -7,13 +7,13 @@ import './Product.css';
 const Product = ({ cartSize, addToCart }) => {
     let count = 1;
     const { productId } = useParams();
-    const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product/${productId}`;
     const [product, setProduct] = useState('');
     const fetchProduct = async (url) => {
         const response = await axios.get(url);
         setProduct(response.data.product);
     };
     useEffect(() => {
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product/${productId}`;
         return () => {
             fetchProduct(url);
         };
