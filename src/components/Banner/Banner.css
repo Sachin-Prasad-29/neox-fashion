@@ -1,8 +1,7 @@
-.banner{
+.banner {
     width: 80%;
     margin: 15px auto;
-
-
 }
-
-   
+.banner-section {
+    transition: 1s transform;
+}

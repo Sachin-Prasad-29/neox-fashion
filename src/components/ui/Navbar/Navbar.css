@@ -24,13 +24,21 @@ nav {
     cursor: pointer;
     color: white;
 }
-#search-box{
+#search-box {
     padding: 5px;
     border: none;
     border-radius: 0;
-    width:150px;
+    width: 150px;
+    font-size: 12px;
 }
-#search-box:focus{
-   
-    outline: 1px solid rgb(163, 160, 160);;
+
+::placeholder {
+  color: rgb(49, 49, 49);
+}
+::placeholder {
+  opacity: 0.4;
+}
+
+#search-box:focus {
+    outline: 1px solid rgb(163, 160, 160);
 }

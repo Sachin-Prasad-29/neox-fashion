@@ -18,7 +18,7 @@ const DashBoard = () => {
     const fetchProduct = async () => {
       
     
-        const url = `http://localhost:5001/api/product?page=${page}`;
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product?page=${page}`;
         const reqData = {
             method: 'get',
             url: `${url}`,
@@ -32,7 +32,7 @@ const DashBoard = () => {
         setProducts(response.data.products);
     };
     const addProduct = async () => {
-        const url = 'http://localhost:5001/api/product';
+        const url = 'https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product';
         const productDetails = {
             name,
             category,
@@ -69,7 +69,7 @@ const DashBoard = () => {
     const editProduct = async () => {
         const changedProductData = { name, category, gender, description, cost, images };
         console.log(changedProductData);
-        const url = `http://localhost:5001/api/product/${id}`;
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product/${id}`;
         const reqData = {
             method: 'patch',
             url: url,

@@ -7,6 +7,7 @@ const SingleProductCard = ({ product, addToCart }) => {
     const productId = _id;
     return (
         <div className='product d-flex product-style'>
+            
             <Link to={`/${productId}`} className='d-flex product no-style'>
                 <img src={images} alt='' width='200px' />
 
@@ -14,6 +15,7 @@ const SingleProductCard = ({ product, addToCart }) => {
                 <div className='f-bold'>₹ {cost}.00</div>
                 
             </Link>
+            
             <div>
                 <button className='btn-2 primary'>Buy Now</button>
                 <button className='btn-2 orange' onClick={() => addToCart(product)}>

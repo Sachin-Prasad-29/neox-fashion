@@ -15,7 +15,7 @@ const Home = ({ addToCart, cartSize }) => {
         if (!queryObject) {
             setShowBanner(true);
         }
-        const url = `http://localhost:5001/api/product`;
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product`;
         const reqData = {
             method: 'get',
             url: `${url}?${queryObject}`,

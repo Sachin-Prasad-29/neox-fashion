@@ -11,7 +11,7 @@ const AdminLogin = () => {
         return true;
     };
     const onLogin = async () => {
-        const url = `http://localhost:5001/api/auth/login`;
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/login`;
         const userDetails = { email, password };
         if (!validate()) console.log('Please Enter the field correct');
         else {

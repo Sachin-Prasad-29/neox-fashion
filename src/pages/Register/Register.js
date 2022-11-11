@@ -16,7 +16,7 @@ const Register = () => {
     };
     const onSignup = async (e) => {
         
-        const url = `http://localhost:5001/api/auth/register`;
+        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/register`;
         e.preventDefault();
         if (!validate()) {
             alert('Please Enter the all field Correct');
