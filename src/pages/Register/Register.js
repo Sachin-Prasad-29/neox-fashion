@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import image from './register.svg';
+import './Register.css'
 
 const Register = () => {
     const navigate = useNavigate();
@@ -15,12 +17,10 @@ const Register = () => {
         return true;
     };
     const onSignup = async (e) => {
-        
         const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/register`;
         e.preventDefault();
         if (!validate()) {
             alert('Please Enter the all field Correct');
-            
         } else {
             const userDetails = { name, email, password };
             const reqData = {
@@ -32,64 +32,72 @@ const Register = () => {
                 data: userDetails,
             };
             const response = await axios(reqData);
-            navigate('/admin')
+            navigate('/admin');
             console.log(response.data);
             navigate('/login');
-       
         }
     };
     return (
-        <div className='container'>
-            <div>
+        <section className='container register-box'>
+            <div className='left-child'>
+                <img src={image} alt='' width='400px' />
+                <div className='m-1'>Already have an account ?</div>
                 <div>
-                    <h2>Sign Up</h2>
-                </div>
-                <div className='mt-3'>
-                    <label htmlFor='name'>Name</label>
-                    <br />
-                    <input
-                        type='text'
-                        id='name'
-                        placeholder='Name'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className='mt-3'>
-                    <label htmlFor='email'>Email</label>
-                    <br />
-                    <input
-                        type='email'
-                        id='email'
-                        placeholder='Email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div className='mt-3'>
-                    <label htmlFor='password'>Password</label>
-                    <br />
-                    <input
-                        type='password'
-                        id='password'
-                        placeholder='Password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <div className='mt-3'>
-                    <button onClick={onSignup}>Sign UP</button>
+                    <Link to='/login'>
+                        <button className='btn-2 signin'>Login</button>
+                    </Link>
+                    <Link to='/'>
+                        <button className='btn-2 home'>Home</button>
+                    </Link>
                 </div>
             </div>
-            <br />
-
-            <Link to='/login'>
-                <button>Login</button>
-            </Link>
-            <Link to='/'>
-                <button>Home</button>
-            </Link>
-        </div>
+            <div className='right-child'>
+                <div>
+                    <div className='title'>Sign Up</div>
+                    <div className='mt-3'>
+                        <label htmlFor='name'>Name</label>
+                        <br />
+                        <input
+                            type='text'
+                            id='name'
+                            placeholder='Name'
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className='my-3'
+                        />
+                    </div>
+                    <div className='mt-3'>
+                        <label htmlFor='email'>Email</label>
+                        <br />
+                        <input
+                            type='email'
+                            id='email'
+                            placeholder='Email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className='my-3'
+                        />
+                    </div>
+                    <div className='mt-3'>
+                        <label htmlFor='password'>Password</label>
+                        <br />
+                        <input
+                            type='password'
+                            id='password'
+                            placeholder='Password'
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className='my-3'
+                        />
+                    </div>
+                    <div className='mt-3'>
+                        <button onClick={onSignup} className='btn-2 register'>
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
