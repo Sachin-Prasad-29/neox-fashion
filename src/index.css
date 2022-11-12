@@ -153,6 +153,9 @@ code {
 .orange {
     background-color: orange;
 }
+.danger{
+    background-color: rgb(243, 67, 67);
+}
 
 .btn-2 {
     padding: 6px 8px;
