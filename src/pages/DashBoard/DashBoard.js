@@ -16,12 +16,9 @@ const DashBoard = () => {
     const [page, setPage] = useState(1);
 
     const fetchProduct = async () => {
-      
-    
-        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product?page=${page}`;
         const reqData = {
             method: 'get',
-            url: `${url}`,
+            url: `/product?page=${page}`,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -32,7 +29,6 @@ const DashBoard = () => {
         setProducts(response.data.products);
     };
     const addProduct = async () => {
-        const url = 'https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product';
         const productDetails = {
             name,
             category,
@@ -43,7 +39,7 @@ const DashBoard = () => {
         };
         const reqData = {
             method: 'post',
-            url: url,
+            url: `/product`,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -69,10 +65,9 @@ const DashBoard = () => {
     const editProduct = async () => {
         const changedProductData = { name, category, gender, description, cost, images };
         console.log(changedProductData);
-        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/product/${id}`;
         const reqData = {
             method: 'patch',
-            url: url,
+            url: `/product/${id}`,
             headers: {
                 'Content-Type': 'application/json',
             },

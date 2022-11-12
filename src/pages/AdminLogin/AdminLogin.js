@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './AdminLogin.css';
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -11,13 +12,12 @@ const AdminLogin = () => {
         return true;
     };
     const onLogin = async () => {
-        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/login`;
         const userDetails = { email, password };
         if (!validate()) console.log('Please Enter the field correct');
         else {
             const reqData = {
                 method: 'post',
-                url: url,
+                url: `/auth/login`,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -33,31 +33,35 @@ const AdminLogin = () => {
         }
     };
     return (
-        <div className='d-flex container '>
-            <div className='m-5 d-flex'>
-                <label htmlFor='email'>Email : </label>
-                <input
-                    type='email'
-                    id='email'
-                    placeholder='Email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+        <div className='container '>
+            <div className='af-container'>
+                <div className='m-5  login-container title'>Admin Sign In</div>
+                <div className='m-5  login-container'>
+                    <label htmlFor='email'>Email : </label>
+                    <input
+                        type='email'
+                        id='email'
+                        placeholder='Email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className='m-5  login-container'>
+                    <label htmlFor='password'>Password : </label>
+                    <input
+                        type='password'
+                        id='password'
+                        placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className='m-4  login-container'>
+                    <button className='btn-2 primary' onClick={onLogin}>
+                        Submit
+                    </button>
+                </div>
             </div>
-            <div className='m-5 d-flex'>
-                <label htmlFor='password'>Password : </label>
-                <input
-                    type='password'
-                    id='password'
-                    placeholder='Password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <button className='m-5' onClick={onLogin}>
-                {' '}
-                Submit
-            </button>
         </div>
     );
 };

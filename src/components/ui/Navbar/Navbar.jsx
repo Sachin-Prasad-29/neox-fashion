@@ -8,7 +8,7 @@ import { CiLogin } from 'react-icons/ci';
 const Navbar = ({ cartSize }) => {
     const [user, setUser] = useState(localStorage.getItem('name'));
     const signOut = () => {
-        alert('hello');
+        alert('Successful sign out');
         localStorage.clear();
         setUser('');
     };

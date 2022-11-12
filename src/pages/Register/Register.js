@@ -17,7 +17,6 @@ const Register = () => {
         return true;
     };
     const onSignup = async (e) => {
-        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/register`;
         e.preventDefault();
         if (!validate()) {
             alert('Please Enter the all field Correct');
@@ -25,7 +24,7 @@ const Register = () => {
             const userDetails = { name, email, password };
             const reqData = {
                 method: 'post',
-                url: url,
+                url: `/auth/register`,
                 headers: {
                     'Content-Type': 'application/json',
                 },

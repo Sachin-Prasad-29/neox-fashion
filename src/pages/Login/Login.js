@@ -15,14 +15,13 @@ const Login = () => {
         return true;
     };
     const onLogin = async () => {
-        const url = `https://e-commerce-server-ejfu741tw-sachin-prasad-29.vercel.app/api/auth/login`;
         if (!validate()) {
             alert('Please fill all the field correct');
         } else {
             const userDetails = { email, password };
             const reqData = {
                 method: 'post',
-                url: url,
+                url: `/auth/login`,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -33,7 +32,6 @@ const Login = () => {
             localStorage.setItem('name', response.data.name);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
-
             navigate('/');
         }
     };
@@ -57,7 +55,7 @@ const Login = () => {
                     <div className='mt-4'>
                         <label htmlFor='email'>Password</label> <br />
                         <input
-                            type='email'
+                            type='password'
                             id='email'
                             value={password}
                             placeholder='Password'
