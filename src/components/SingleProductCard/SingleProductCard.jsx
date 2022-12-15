@@ -9,7 +9,7 @@ const SingleProductCard = ({ product, addToCart }) => {
         <div className='product d-flex product-style'>
             
             <Link to={`/${productId}`} className='d-flex product no-style'>
-                <img src={images} alt='' width='200px' />
+                <img src={images} alt='' width='100px' height='150px' />
 
                 <div className='f-bold f-capital'>{name}</div>
                 <div className='f-bold'>₹ {cost}.00</div>

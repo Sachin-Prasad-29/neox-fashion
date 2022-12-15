@@ -33,7 +33,7 @@ const Product = ({ cartSize, addToCart }) => {
             {product && (
                 <div className='product-details mt-5'>
                     <div className='img-details'>
-                        <img src={product.images} alt='' width='100%' className='product-img' />
+                        <img src={product.images} alt='' width='50%' className='product-img' />
                         <div className='deatil-container'>
                             <div className='my-2'>
                                 <b>{product.name}</b>
